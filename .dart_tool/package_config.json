@@ -231,9 +231,9 @@
     },
     {
       "name": "file",
-      "rootUri": "file:///Users/apple/.pub-cache/hosted/pub.dev/file-7.0.0",
+      "rootUri": "file:///Users/apple/.pub-cache/hosted/pub.dev/file-6.1.4",
       "packageUri": "lib/",
-      "languageVersion": "3.0"
+      "languageVersion": "2.12"
     },
     {
       "name": "file_picker",
@@ -320,6 +320,24 @@
       "languageVersion": "3.2"
     },
     {
+      "name": "firebase_messaging",
+      "rootUri": "file:///Users/apple/.pub-cache/hosted/pub.dev/firebase_messaging-14.7.19",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
+      "name": "firebase_messaging_platform_interface",
+      "rootUri": "file:///Users/apple/.pub-cache/hosted/pub.dev/firebase_messaging_platform_interface-4.5.27",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
+      "name": "firebase_messaging_web",
+      "rootUri": "file:///Users/apple/.pub-cache/hosted/pub.dev/firebase_messaging_web-3.6.8",
+      "packageUri": "lib/",
+      "languageVersion": "3.2"
+    },
+    {
       "name": "firebase_storage",
       "rootUri": "file:///Users/apple/.pub-cache/hosted/pub.dev/firebase_storage-11.6.7",
       "packageUri": "lib/",
@@ -396,6 +414,24 @@
       "rootUri": "file:///Users/apple/.pub-cache/hosted/pub.dev/flutter_lints-2.0.3",
       "packageUri": "lib/",
       "languageVersion": "2.19"
+    },
+    {
+      "name": "flutter_local_notifications",
+      "rootUri": "file:///Users/apple/.pub-cache/hosted/pub.dev/flutter_local_notifications-16.3.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
+      "name": "flutter_local_notifications_linux",
+      "rootUri": "file:///Users/apple/.pub-cache/hosted/pub.dev/flutter_local_notifications_linux-4.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
+      "name": "flutter_local_notifications_platform_interface",
+      "rootUri": "file:///Users/apple/.pub-cache/hosted/pub.dev/flutter_local_notifications_platform_interface-7.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
     },
     {
       "name": "flutter_logs",
@@ -710,6 +746,12 @@
       "languageVersion": "3.2"
     },
     {
+      "name": "process",
+      "rootUri": "file:///Users/apple/.pub-cache/hosted/pub.dev/process-4.2.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
       "name": "provider",
       "rootUri": "file:///Users/apple/.pub-cache/hosted/pub.dev/provider-6.1.2",
       "packageUri": "lib/",
@@ -842,6 +884,12 @@
       "languageVersion": "3.0"
     },
     {
+      "name": "timezone",
+      "rootUri": "file:///Users/apple/.pub-cache/hosted/pub.dev/timezone-0.9.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
+    },
+    {
       "name": "typed_data",
       "rootUri": "file:///Users/apple/.pub-cache/hosted/pub.dev/typed_data-1.3.2",
       "packageUri": "lib/",
@@ -933,9 +981,9 @@
     },
     {
       "name": "xdg_directories",
-      "rootUri": "file:///Users/apple/.pub-cache/hosted/pub.dev/xdg_directories-1.0.4",
+      "rootUri": "file:///Users/apple/.pub-cache/hosted/pub.dev/xdg_directories-0.2.0+3",
       "packageUri": "lib/",
-      "languageVersion": "3.0"
+      "languageVersion": "2.12"
     },
     {
       "name": "xml",
@@ -998,7 +1046,7 @@
       "languageVersion": "3.2"
     }
   ],
-  "generated": "2024-06-24T09:10:36.335187Z",
+  "generated": "2024-07-30T06:40:19.984755Z",
   "generator": "pub",
   "generatorVersion": "3.2.2"
 }

@@ -10,20 +10,29 @@ class GetStorageData extends GetxController {
   final _userId = ''.obs;
   final _token = ''.obs;
   final _userName = ''.obs;
+  final _deviceToken = ''.obs;
 
   init() async {
     _userId.value = box.read(StringConstant.userId) ?? '';
     _token.value = box.read(StringConstant.token) ?? '';
     _userName.value = box.read(StringConstant.userName) ?? '';
+    _deviceToken.value = box.read(StringConstant.deviceToken) ?? '';
   }
 
   get userId => _userId.value;
   get token => _token.value;
   get userName => _userName.value;
+  get deviceToken => _deviceToken.value;
 
   void setUserId(String value) {
     _userId.value = value;
     setPref(StringConstant.userId, value);
+    update();
+  }
+
+  void setDeviceToken(String value) {
+    _deviceToken.value = value;
+    setPref(StringConstant.deviceToken, value);
     update();
   }
 

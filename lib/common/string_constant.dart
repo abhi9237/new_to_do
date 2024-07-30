@@ -11,6 +11,7 @@ class StringConstant {
   static const userId = 'userId';
   static const token = 'token';
   static const userName = 'userName';
+  static const deviceToken = 'deviceToken';
   static const channelId = 'flutter_audio_video_call';
   static const appId = '8cb838ee12fa4d07a3e39fcf68c017f4';
   static const agoraToken =

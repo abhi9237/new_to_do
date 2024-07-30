@@ -33,12 +33,13 @@ class LoginController extends GetxController {
               password: passwordController.value.text.trim().toString())
           .then((value) async {
         Get.find<GetStorageData>().setUserId(value.user?.uid ?? '');
-        Get.find<GetStorageData>().setUserId(value.user?.displayName ?? '');
+        Get.find<GetStorageData>().setUserName(value.user?.displayName ?? '');
         IdTokenResult? idTokenResult =
             await FirebaseAuth.instance.currentUser?.getIdTokenResult();
         log("here is UserTocken ${idTokenResult?.token}");
         Get.find<GetStorageData>().setToken(idTokenResult?.token ?? '');
         log(" tocken======= ${Get.find<GetStorageData>().token.toString()}");
+        log(" tocken======= ${Get.find<GetStorageData>().userId.toString()}");
         isLoading.value = false;
         Get.offAllNamed(AppRoutes.bottomNavigation);
         update();

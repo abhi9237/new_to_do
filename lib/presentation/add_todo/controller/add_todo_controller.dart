@@ -45,18 +45,18 @@ class AddTodoController extends GetxController {
 
   pickImagesList({ImageSource? imageSource}) async {
     await imagePicker.pickMultiImage().then((value) async {
-      if (value.isNotEmpty && value.length < 3) {
+      if (value.isNotEmpty && value.length > 3) {
+        CustomToast.showToast('Please select only three images',
+            bgColor: Colors.blue);
+        // image = await compressImage(value);
+        update();
+      } else if (value.isNotEmpty) {
         for (var i in value) {
           File image = await compressImage(i);
           images.add(image);
           log('Length${images.toString()}');
           // DatabaseService().uploadImageFirebaseStorage(fileName: image);
         }
-        // image = await compressImage(value);
-        update();
-      } else {
-        CustomToast.showToast('Please select only three images',
-            bgColor: Colors.blue);
       }
     });
   }
@@ -77,14 +77,18 @@ class AddTodoController extends GetxController {
         .contains(titleController.value.text.toLowerCase().trim()))) {
       CustomToast.showToast('Title is already exist please add another title',
           bgColor: Colors.blue);
+    } else if (images.isEmpty) {
+      CustomToast.showToast('Please add one image', bgColor: Colors.blue);
     } else {
       isLoading.value = true;
-      List<String> todoImages = await Future.wait(
+      List<String> todoImages = [];
+      todoImages = await Future.wait(
           images.map((i) => DatabaseService().uploadTodoImagesFirebaseStorage(
                 fileName: i,
               )));
 
       log('Images List${todoImages.toString()}');
+      log('Get.find<GetStorageData>().userId${Get.find<GetStorageData>().userId}');
       DatabaseService()
           .storeDailyNotes(
         title: titleController.value.text.trim(),

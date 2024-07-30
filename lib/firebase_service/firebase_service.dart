@@ -1,9 +1,12 @@
+import 'dart:convert';
 import 'dart:developer';
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_demo_app/presentation/all_user/all_user_modal/all_user_modal.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:flutter/foundation.dart';
+import 'package:http/http.dart' as http;
 import 'package:path/path.dart' as path;
 
 import '../presentation/add_todo/modal/add_todo_modal.dart';
@@ -54,6 +57,7 @@ class DatabaseService {
         FirebaseFirestore.instance.collection("All Notes");
     DocumentReference documentReference =
         userCollection.doc(uid).collection('myNotes').doc(title);
+    log('SSSSSSSSS${images.toString()}');
 
     AddToDoModal addNotes = AddToDoModal(
         title: title,
@@ -253,5 +257,41 @@ class DatabaseService {
     }
     log('List===${allMessageList.length.toString()}');
     return allMessageList;
+  }
+
+  sendNotification({String? deviceToken, String? message}) async {
+    var data = {
+      'to': deviceToken ?? '',
+      'notification': {
+        'title': 'Chat',
+        'body': message,
+        "sound": "jetsons_doorbell.mp3"
+      },
+      'android': {
+        'notification': {
+          'notification_count': 0,
+        },
+      },
+      // 'data' : {
+      //   'type' : 'msj' ,
+      //   'id' : 'Asif Taj'
+      // }
+    };
+
+    await http.post(Uri.parse('https://fcm.googleapis.com/fcm/send'),
+        body: jsonEncode(data),
+        headers: {
+          'Content-Type': 'application/json; charset=UTF-8',
+          'Authorization':
+              'key=AAAAp9pXDFM:APA91bGhBeMCUABE2PXjl9UqodAZ2WdV_UI6PoiwdCzYaT8KeZmBKZszc01CD1GgN0OAJ1w3sNw9IVISyKhrrxQLASHizenGJUr2hjzoPjbjFu0HAx1CTk0l8Ut95ZENAQyRKm6hrltV'
+        }).then((value) {
+      if (kDebugMode) {
+        print(value.body.toString());
+      }
+    }).onError((error, stackTrace) {
+      if (kDebugMode) {
+        print(error);
+      }
+    });
   }
 }
